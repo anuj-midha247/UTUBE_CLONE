@@ -121,101 +121,15 @@ function displayData(data) {
     }
   });
     videoDiv.innerHTML = insert;
-    // addEventListener(data);
+    addEventListenerr(data);
 }
-// document.querySelector("#all").addEventListener("click", async () => {
-//     const btn = document.querySelector("#bolly-music");
-//     const all = document.querySelector("#all");
-//     const back = document.querySelector("#back-music");
-//     const upsc = document.querySelector("#upsc"); 
-//     const bhajan = document.querySelector("#bhajan");
-//     btn.style.backgroundColor = "#fff";
-//     btn.style.color = "black";
-//     all.style.backgroundColor = "black";
-//     all.style.color = "#fff";
-//     back.style.backgroundColor = "#fff";
-//     back.style.color = "black";
-//     upsc.style.backgroundColor = "#fff";
-//     upsc.style.color = "black";
-//     bhajan.style.backgroundColor = "#fff";
-//     bhajan.style.color = "black";
-//     popular(popUrl);
-// })
-// document.querySelector("#back-music").addEventListener("click", async () => {
-//     const btn = document.querySelector("#bolly-music");
-//     const all = document.querySelector("#all");
-//     const back = document.querySelector("#back-music");
-//     const upsc = document.querySelector("#upsc"); 
-//     const bhajan = document.querySelector("#bhajan");
-//     btn.style.backgroundColor = "#fff";
-//     btn.style.color = "black";
-//     all.style.backgroundColor = "#fff";
-//     all.style.color = "black";
-//     back.style.backgroundColor = "black";
-//     back.style.color = "#fff";
-//     upsc.style.backgroundColor = "#fff";
-//     upsc.style.color = "black";
-//     bhajan.style.backgroundColor = "#fff";
-//     bhajan.style.color = "black";
-//     const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&order=relevance&q=${'Background Music'}&videoCaption=any&key=${apiKey}`;
-
-//     const data = await fetch(url);
-//     const getData = await data.json();
-//     // console.log(getData.items);
-//     displayData(getData.items);
-// })
+// displayData(data);
 
 
-// document.querySelector("#bhajan").addEventListener("click", async () => {
-//     const btn = document.querySelector("#bolly-music");
-//     const all = document.querySelector("#all");
-//     const back = document.querySelector("#back-music");
-//     const upsc = document.querySelector("#upsc"); 
-//     const bhajan = document.querySelector("#bhajan");
-//     btn.style.backgroundColor = "#fff";
-//     btn.style.color = "black";
-//     all.style.backgroundColor = "#fff";
-//     all.style.color = "black";
-//     back.style.backgroundColor = "#fff";
-//     back.style.color = "black";
-//     upsc.style.backgroundColor = "#fff";
-//     upsc.style.color = "black";
-//     bhajan.style.backgroundColor = "black";
-//     bhajan.style.color = "#fff";
-//     const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&order=relevance&q=${'bhajan'}&videoCaption=any&key=${apiKey}`;
-
-//     const data = await fetch(url);
-//     const getData = await data.json();
-//     // console.log(getData.items);
-//     displayData(getData.items);
-// })
 
 
-// document.querySelector("#upsc").addEventListener("click", async () => {
-//     const btn = document.querySelector("#bolly-music");
-//     const all = document.querySelector("#all");
-//     const back = document.querySelector("#back-music");
-//     const upsc = document.querySelector("#upsc"); 
-//     const bhajan = document.querySelector("#bhajan");
-//     btn.style.backgroundColor = "#fff";
-//     btn.style.color = "black";
-//     all.style.backgroundColor = "#fff";
-//     all.style.color = "black";
-//     back.style.backgroundColor = "#fff";
-//     back.style.color = "black";
-//     upsc.style.backgroundColor = "black";
-//     upsc.style.color = "#fff";
-//     bhajan.style.backgroundColor = "#fff";
-//     bhajan.style.color = "black";
-//     const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&order=relevance&q=${'UPSC'}&videoCaption=any&key=${apiKey}`;
-
-//     const data = await fetch(url);
-//     const getData = await data.json();
-//     // console.log(getData.items);
-//     displayData(getData.items);
-// })
 const videoCardContainer = document.querySelector(".video-container");
-let api_key = "AIzaSyBxUTGFHxtwJftuu3VwUCfQotIGCSesyc4";
+let api_key = "AIzaSyCfPAIWJziIVZ7PTiiPUsK83eWhaKI0GPU";
 
 let video_http = "https://www.googleapis.com/youtube/v3/videos?";
 let channel_http = "https://www.googlepis.com/youtube/v3/channels?";
@@ -229,7 +143,8 @@ fetch(video_http + new URLSearchParams({
 })).then(res => res.json())
     .then(data => {
     // console.log(data);
-        data.items.forEach(item => {
+        data.items.forEach((item )=> {
+
             getChannelIcon(item);
         })
     })
@@ -245,10 +160,10 @@ const getChannelIcon = (video_data) => {
     })
 }
     
-const makeVideoCard = (data) => {
-   
+const makeVideoCard = (data ) => {
+//    console.log(data.id);
     videoCardContainer.innerHTML += `
-    <div class="video">
+    <div class="video" onclick="addEventListenerr(data.id)">
                 <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
                 <div class="content">
                     <img src="${data.channelThumbnail}" class="channel-icon" alt="">
@@ -259,6 +174,7 @@ const makeVideoCard = (data) => {
                 </div>
             </div>
     `;
+    // addEventListenerr(data);
 }
 
 
@@ -313,6 +229,8 @@ window.addEventListener("click",(ev)=>{
         searchsugg.classList.remove("hidesearchsugg");
     }
  })
+
+ 
 
         
     
