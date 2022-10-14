@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./video_player/styles/video1.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/7a0b7110fe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/upNavbar.css">
+  </head>
+  <body>
+  <!-- navbar & sidebar -->
+    <div id="container"></div>
+    <div id="navContainer"></div>
+    <!-- Video player section -->
+
+    <!-- comment section & similar video section -->
+
+    <div class="container">
+      <div class="row">
+        <div class="video-comment">
+          <div class="video-player">
+            <iframe
+              id="video-frame"
+              width="900"
+              height="506"
+              src="https://www.youtube.com/embed/MXzHoJ3SbeY"
+              title="USA calls PoK as Azad Kashmir | India Protests over US envoy visit to Pakistan occupied Pakistan"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="comments-container">
+            <div class="tags">
+              <a href="">#youtube</a> <a href="">#trending</a>
+              <a href="">#viral</a>
+            </div>
+            <h3 id="videoTitle">Best Channel to learn fighting</h3>
+            <div class="play-video-info">
+              <p><span id="viewCount">1223</span>  views &bull; 2 days ago</p>
+              <div id="like-dislike">
+                <span><img src="./images/like.png" width="20px"/></span><a id="likeCount" href="">10k</a>
+                <a href=""><img src="./images/dislike.png" /></a>
+                <a href=""><img src="./images/share.png" />SHARE</a>
+                <a href=""><img src="./images/save.png" />SAVE</a>
+              </div>
+            </div>
+            <hr />
+            <div class="publisher">
+              <img id="channel-thumbnail" src="" />
+              <div>
+                <p id="channel-title">Easy Tutorial</p>
+                <span id="subCount">500</span> <span>subscribers</span>
+              </div>
+              <button type="button" id="subscribe-btn">SUBSCRIBE</button>
+            </div>
+            <div class="vid-description">
+              <p id="description">Description Channel that makes learning easy</p>
+              
+              <hr />
+              <h4 id="total-comments">134 Comments</h4>
+
+              <div class="add-comment">
+                <img id="comment-channel-thumbnail" src="./images/Jack.png" />
+                <input type="text" placeholder="Write comments.." />
+              </div>
+            </div>
+
+            <div class="old-comment">
+              <img  src="./images/Jack.png" />
+              <div>
+                <h3>Jack Nicholson<span>2 days ago</span></h3>
+                <p>
+                  Hello Sir, I'm Mukesh from WB. I am also learning Web
+                  development courses from #Udemy. But still I don't understand
+                  more the concept of the backend development,
+                </p>
+
+                <div class="comment-action">
+                  <img src="./images/like.png" />
+                  <span>244</span>
+                  <img src="./images/dislike.png" />
+                  <span> 2</span> <span>REPLY</span>
+                  <a href="">All Replies</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="old-comment">
+              <img src="./images/Jack.png" />
+              <div>
+                <h3>Jack Nicholson<span>2 days ago</span></h3>
+                <p>
+                  Hello Sir, I'm Mukesh from WB. I am also learning Web
+                  development courses from #Udemy. But still I don't understand
+                  more the concept of the backend development,
+                </p>
+
+                <div class="comment-action">
+                  <img src="./images/like.png" />
+                  <span>244</span>
+                  <img src="./images/dislike.png" />
+                  <span> 2</span> <span>REPLY</span>
+                  <a href="">All Replies</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- playlist sidebar -->
+
+        <div class="right-sidebar">
+          <div class="side-video-list">
+            <a class="small-thumbnail" href=""
+              ><img src="./assets/waterfall.jpg" alt=""
+            /></a>
+            <div class="vid-info">
+              <div class="vid-title">Best channel to watch waterfall nature you can see</div>
+              <p>Easy Tutorials</p>
+              <p>15k views</p>
+            </div>
+          </div>
+
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script type="module" src="./video_player/scripts/video1.js"></script>
+<script src="./scripts/navbar.js"></script>
