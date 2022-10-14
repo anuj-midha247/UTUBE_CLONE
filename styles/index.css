@@ -319,3 +319,7 @@ hr{
     font-size: 15px;
     cursor: pointer;
 }
+
+.thumbnail{
+    cursor: pointer;
+}

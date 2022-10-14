@@ -85,51 +85,51 @@ hidemenuIcon.addEventListener("click", () => {
 //     // console.log(getData.items);
 //     displayData(getData.items);
 // })
-function displayData(data) {
-    console.log(data);
-    let videoDiv = document.querySelector(".video-container");
-    // videoDiv.innerText = "";
-  let insert = "";
-  data.map((ele) => {
-    // console.log(ele);
-    const {
-      id: { videoId },
-      snippet: {
-        thumbnails: {
-          high: { url },
-        },
-        title,
-        channelTitle,
-      }
-    } = ele;
-    if (videoId != undefined) {
-      insert += `
-                        <div class="viddata">
-                        <div class="thumb"><img src="${url}" alt="${title}"></div>
-                        <div class="viddetailbox">
-                        <div class="channelogo">
-                            <img src="" alt="">
-                        </div>
-                        <div class="viddetail">
-                            <h4>${title}</h4>
-                            <p>${channelTitle}</p>
-                            <p><span></span><span> views</span></p>
-                        </div>
-                        </div>
-                    </div>
-                `;
-    }
-  });
-    videoDiv.innerHTML = insert;
-    addEventListenerr(data);
-}
+// function displayData(data) {
+//     console.log(data);
+//     let videoDiv = document.querySelector(".video-container");
+//     // videoDiv.innerText = "";
+//   let insert = "";
+//   data.map((ele) => {
+//     // console.log(ele);
+//     const {
+//       id: { videoId },
+//       snippet: {
+//         thumbnails: {
+//           high: { url },
+//         },
+//         title,
+//         channelTitle,
+//       }
+//     } = ele;
+//     if (videoId != undefined) {
+//       insert += `
+//                         <div class="viddata">
+//                         <div class="thumb"><img src="${url}" alt="${title}"></div>
+//                         <div class="viddetailbox">
+//                         <div class="channelogo">
+//                             <img src="" alt="">
+//                         </div>
+//                         <div class="viddetail">
+//                             <h4>${title}</h4>
+//                             <p>${channelTitle}</p>
+//                             <p><span></span><span> views</span></p>
+//                         </div>
+//                         </div>
+//                     </div>
+//                 `;
+//     }
+//   });
+//     videoDiv.innerHTML = insert;
+//     addEventListenerr(data);
+// }
 // displayData(data);
 
 
 
 
 const videoCardContainer = document.querySelector(".video-container");
-let api_key = "AIzaSyCfPAIWJziIVZ7PTiiPUsK83eWhaKI0GPU";
+let api_key = "AIzaSyDs2mqENl7X7TEW8iJFGlegakdZkDmIdyg";
 
 let video_http = "https://www.googleapis.com/youtube/v3/videos?";
 let channel_http = "https://www.googlepis.com/youtube/v3/channels?";
@@ -162,66 +162,58 @@ const getChannelIcon = (video_data) => {
     
 const makeVideoCard = (data ) => {
 //    console.log(data.id);
-    videoCardContainer.innerHTML += `
-    <div class="video" onclick="addEventListenerr(data.id)">
-                <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
-                <div class="content">
-                    <img src="${data.channelThumbnail}" class="channel-icon" alt="">
-                    <div class="info">
-                        <h4 class="title">${data.snippet.title}</h4>
-                        <p class="channel-name">${data.snippet.channelTitle}</p>
-                    </div>
-                </div>
-            </div>
-    `;
-    // addEventListenerr(data);
+    // videoCardContainer.innerHTML += `
+    // <div class="video" >
+    //             <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="" >
+    //             <div class="content">
+    //                 <img src="${data.channelThumbnail}" class="channel-icon" alt="">
+    //                 <div class="info">
+    //                     <h4 class="title">${data.snippet.title}</h4>
+    //                     <p class="channel-name">${data.snippet.channelTitle}</p>
+    //                 </div>
+    //             </div>
+    //         </div>
+    // `;
+
+    
+        let div=document.createElement( "div");
+        div.setAttribute("class", "video");
+        let img = document.createElement("img");
+        img.src = data.snippet.thumbnails.high.url;
+    img.setAttribute("class", "thumbnail");
+    img.addEventListener("click", ()=>{
+        Listenerr(data);
+    })
+        let div2 = document.createElement("div");
+        div2.setAttribute("class", "content");
+        let img2 = document.createElement("img");
+        img2.setAttribute("class", "channel-icon");
+        img2.src = data.channelThumbnail;
+        let div3 = document.createElement("div");
+        div3.setAttribute("class", "info");
+        let h4 = document.createElement("h4");
+        h4.setAttribute("class", "title");
+        h4.innerText = data.snippet.title;
+        let p = document.createElement("p");
+        p.setAttribute("class", "channel-name");
+        p.innerText = data.snippet.channelTitle;
+        div3.append(h4, p);
+        div2.append(img2, div3);
+        div.append(img, div2);
+        videoCardContainer.append(div);
+        
+  
+    
+   
 }
 
-
-// for (let i = 0; i < 15; i++){
-//     // console.log(document.querySelector(`.filter${i}`).innerText);
-//     videoCardContainer.innerText="";
-//     document.querySelector(`.filter${i}`).addEventListener("click", () => {
-//         const val = document.querySelector(`.filter${i}`).innerText;
-//         fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&order=relevance&q=${"val"}&videoCaption=any&key=${api_key}`)
-//             .then(res => res.json())
-//             .then(data => {
-//                 console.log(data);
-//                 data.items.forEach(item => {
-//                     getChannellIcon(item);
-//                 })
-//             })
-//             .catch(err=>console.log(err))
-        
-//         const getChannellIcon = (video_data) => {
-//             fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${video_data.snippet.channelId}&key=${api_key}`)
-//                 .then(res => res.json())
-//                 .then(data => {
-//                 // console.log(data);
-//                     video_data.channelThumbnail = data.items[0].snippet.thumbnails.default.url;
-//                     makeVideooCard(video_data);
-//             })
-//         }
-            
-//         const makeVideooCard = (data) => {
-//             videoCardContainer.innerHTML += `
-//             <div class="video">
-//                         <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
-//                         <div class="content">
-//                             <img src="${data.channelThumbnail}" class="channel-icon" alt="">
-//                             <div class="info">
-//                                 <h4 class="title">${data.snippet.title}</h4>
-//                                 <p class="channel-name">${data.snippet.channelTitle}</p>
-//                             </div>
-//                         </div>
-//                     </div>
-//             `;
-//         }
-//     })
+function Listenerr(data) {
+    
+    // console.log(data.id);
+    localStorage.setItem("videoId", data.id);
+    location.href = "../video1.html";
    
-// }
-
-
+}
 window.addEventListener("click",(ev)=>{
     if(ev.target.className!="search"){
         searchsugg.classList.add("hidesearchsugg");
