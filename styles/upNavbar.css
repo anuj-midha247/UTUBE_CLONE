@@ -5,11 +5,12 @@
 }
 #navbar{
     top: 0;
+    position: sticky;
     display: flex;
     justify-content: space-between;
     padding: 20px;
     background-color: white;
-    position: sticky;
+    
     padding: 0;
     width: 95%;
     height: 68px;

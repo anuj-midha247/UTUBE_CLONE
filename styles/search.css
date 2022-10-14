@@ -1,0 +1,65 @@
+#content{
+    display: grid;
+    margin-left: 50px;
+    grid-template-columns: repeat(1,1fr);
+    gap: 10px;
+}
+#colflex{
+    display: flex;
+    width: 75%;
+    margin: auto;
+    cursor: pointer;
+}
+#colflex img{
+    width: 360px;
+    height: 202px;
+}
+#colflex h2{
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+#colflex h4{
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+#colflex h5{
+    margin-left: 15px;
+    
+}
+#leftdownnavbar a{
+    text-decoration: none;
+    color: black;
+}
+#wrapper{
+    display: flex;
+    position: relative;
+}
+#leftdownnavbar{
+    position: fixed;
+    width: 225px;
+    
+    font-size: 20px;
+    height: 100%;
+}
+#leftdownnavbar li{
+    margin-top: 20px;
+    width: 60%;
+    margin: auto;
+    list-style: none;
+    margin-bottom: 20px;
+   
+}
+#leftdownnavbar img{
+    width: 22px;
+    height: 20px;
+}
+.hidesearchsugg{
+    display: none;
+}
+#flexForChannelNameandIcon{
+    display: flex;
+    margin-left: 20px;
+}
+#flexForChannelNameandIcon h4{
+    margin-top: 5px;
+}

@@ -11,7 +11,7 @@ var timerid;
     function fetchkeyword(){
         let keyword=document.getElementById("search").value;
         //console.log(keyword);
-        let key='AIzaSyDs3AbOFxjNdGBUR7NUjE7clCAtLGci-v8';
+        let key='AIzaSyA6bb-YrLGHVAtA74KnX2rKs1MdM4xtycg';
         let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=14&q=${keyword}&key=${key}`;
         fetch(url).then((respone)=>{
             return respone.json();
@@ -43,8 +43,8 @@ var timerid;
         if(event.key === "Enter"){
             let keyword=document.getElementById("search").value;
             localStorage.setItem("keyword",keyword);
-            location.href= '../Search.html';
-            // let key='AIzaSyDs3AbOFxjNdGBUR7NUjE7clCAtLGci-v8s';
+            location.href= './Search.html';
+            // let key='AIzaSyA6bb-YrLGHVAtA74KnX2rKs1MdM4xtycgs';
             // //console.log(keyword)
             // let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${keyword}&key=${key}`;
             // fetch(url).then((respone)=>{
@@ -60,8 +60,8 @@ var timerid;
     const searchConBySugg= (keyword)=>{
         document.getElementById("search").value = keyword;
         localStorage.setItem("keyword",keyword);
-        location.href= '../Search.html';
-        /*let key='AIzaSyDs3AbOFxjNdGBUR7NUjE7clCAtLGci-v8s';
+        location.href= './Search.html';
+        /*let key='AIzaSyA6bb-YrLGHVAtA74KnX2rKs1MdM4xtycgs';
             //console.log(keyword)
             let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${keyword}&key=${key}`;
             //console.log(keyword);
@@ -76,7 +76,7 @@ var timerid;
     const searchbtnfunc = ()=>{
         let keyword=document.getElementById("search").value;
         localStorage.setItem("keyword",keyword);
-        location.href= '../Search.html';
+        location.href= './Search.html';
     }
 
     //add line no.58 to main repo of before and after navbar
