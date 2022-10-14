@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/7a0b7110fe.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/search.css">
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="./styles/index.css">
     <title>Search results</title>
     <style>
@@ -14,6 +14,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Roboto';
         }
         #navbar{
             top: 0;
@@ -220,7 +221,7 @@ hidemenuIcon.addEventListener("click", () => {
     function fetchsearch(){
         
         //console.log(keyword);
-        let key='AIzaSyA6bb-YrLGHVAtA74KnX2rKs1MdM4xtycg';
+        let key='AIzaSyAaooHZP9ci0gZfTx-NVE8buJYaiyiORgQ';
          
         let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=50&q=${keyword}&key=${key}`;
     
@@ -244,6 +245,9 @@ hidemenuIcon.addEventListener("click", () => {
             var div1=document.createElement("div");
             var img=document.createElement("img");
             img.src = elem.snippet.thumbnails.high.url;
+            img.addEventListener("click", ()=>{
+                Listenerr(elem);
+            });
             var div3=document.createElement("div");
             div3.setAttribute("id","flexForChannelNameandIcon")
             div1.append(img);
@@ -269,6 +273,12 @@ hidemenuIcon.addEventListener("click", () => {
             document.getElementById("content").append(col);
         });
      }
+     function Listenerr(data) {
+    
+        console.log(data.id.videoId);
+        localStorage.setItem("videoId", data.id.videoId);
+        location.href = "./video1.html";
+     }    
      window.addEventListener("click",(ev)=>{
         if(ev.target.className!="search"){
             searchsugg.classList.add("hidesearchsugg");
@@ -278,7 +288,7 @@ hidemenuIcon.addEventListener("click", () => {
      })
      
      function geticon(channelid,index){
-        let key=`AIzaSyA6bb-YrLGHVAtA74KnX2rKs1MdM4xtycg`;
+        let key=`AIzaSyAaooHZP9ci0gZfTx-NVE8buJYaiyiORgQ`;
         let url=`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&&id=${channelid}&key=${key}`
         var ret = "";
         fetch(url).then((res)=>{
