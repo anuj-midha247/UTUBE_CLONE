@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube</title>
+    <script src="https://kit.fontawesome.com/7a0b7110fe.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/search.css">
+    <link rel="stylesheet" href="./styles/upNavbar.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #navbar{
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: white;
+            position: sticky;
+            padding: 0;
+            width: 95%;
+            height: 68px;
+        }
+        .youtubeicon{
+            width: 120px;
+            height: 60px;
+            margin-left: 20px;
+        }
+        .plusVidIcon{
+            width: 30px;
+            height: 17px;
+        }
+        #midnavbar{
+            display: flex;
+            align-items: center;
+            width: 38%;
+        }
+        #rightnavbar{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 10%;
+            min-width: 170px;
+            margin-right: 20px;
+        }
+        input{
+            width: 500px;
+            height: 40px;
+            font-size: 18px;
+        }
+        #searchbtn{
+            width: 50px;
+            height: 40px;
+        }
+        .fa-microphone{
+            margin-top: 3px;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 30px;
+            margin-left: 5px;
+            background-color: #efefef ;
+            border-radius: 25px;
+            
+            padding: 7px 10px;
+        }
+        .fa-bell{
+            font-size: 25px;
+        }
+        .userIcon{
+            width: 40px;
+            height: 40px;
+        }
+        
+        #usericondiv{
+            margin: auto;
+            position: relative;
+            display: inline-block;
+        }
+        .dropdowncon{
+            display: none;
+            position: absolute;
+            min-width: 250px;
+            border: 1px solid gray;
+            z-index: 1;
+            margin-top: -35px;
+            background-color: white;
+            left: -5200%;
+            font-size: 16px;
+        }
+        .dropdowncon a{
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        #usericondiv:hover .dropdowncon{
+            display: block;
+        }
+        #wrapper{
+            display: flex;
+            background-color: white;
+        }
+        #firstofdropdowncon{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 95%;
+            margin: auto;
+        }#firstofdropdowncon img{
+            width: 24px;
+            height: 24px;
+        }
+        .PforPrimeInDropdown{
+            color: white;
+            background-color: red;
+            padding: 0 5px;
+        }
+        #dropUserDetails{
+            display: flex;
+            text-align: start;
+        }
+        .Manageyourgooglebyicon{
+            color: blue;
+            margin-left: 17px;
+        }
+        
+        
+        /*.suggestionBySearch{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            width: 500px;
+            height: 22px;
+            font-size: 18px;
+            overflow: hidden;
+            padding-left: 10px;
+            margin: auto;
+            margin-top: 13px;
+            
+        }*/
+        #signinbtn{
+            padding: 10px 10px;
+            background-color: white;
+            font-size: 15px;
+            border: 1px solid blue;
+            border-color: blue;
+            color: blue;
+            cursor: pointer;
+        }
+        .fa{
+            font-size:20px;
+            margin: auto;
+            border-color: blue;
+            cursor: pointer;
+        }
+        .suggpointereffect{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbarpartforsugg">
+        <div id="wrapper">
+        <div id="navbar">
+            <div id="leftnavbar">
+                <div id="iiccoonn">
+                    <div id="navbar1">
+                        <a href="#" class="menu-bars" id="show-menu">
+                            <i class="fas fa-bars"></i>
+                        </a>
+                    </div>
+                
+                <div><img src="./images/YouTubeLogo.png" class="youtubeicon" alt="logo"/></div>
+            </div>
+            </div>
+            <div id="midnavbar">
+                <div><input oninput="debounce()" onkeypress="enterfuncSearch(event)" type="search" placeholder="Search" class="search" id="search"/>  
+                </div>
+                <div><button id="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    
+                </div>
+                <div id="miclogo"><i class="fa-solid fa-microphone"></i></div>
+            </div>
+            <div id="rightnavbar">
+                <div id="usericondiv">
+                    <i class="fa" class="userIcon">&#xf142;</i>
+                    <div class="dropdowncon">
+                        <div id="dropUserDetails">
+                            
+                        </div>
+                        <hr/>
+                        
+                        <div id="firstofdropdowncon">
+                            <div><img src="./images/noun-user-security-4852427.png"/></div>
+                            <div><a href="#">Your data in YouTube</a></div>
+                        </div>
+                        <hr/>
+                        <div id="firstofdropdowncon">
+                            <div><img src="./images/noun-half-moon-2828662.png"/></div>
+                            <div><a href="#">Appearance: Device theme</a></div>
+                        </div>
+                        <div id="firstofdropdowncon">
+                            <div><img src="./images/7628368_language_translation_icon.png"/></div>
+                            <div><a href="#">Language: English</a></div>
+                        </div>
+                        <div id="firstofdropdowncon">
+                            <div><img src="./images/noun-user-protection-3993309.png"/></div>
+                            <div><a href="#">Restricted Mode: Off</a></div>
+                        </div>
+                        <div id="firstofdropdowncon">
+                            <div><img src="./images/noun-globe-1560078.png"/></div>
+                            <div><a href="#">Location: India</a></div>
+                        </div>
+                        <div id="firstofdropdowncon">
+                            <div><img src="./images/keyboard_5643.png"/></div>
+                            <div><a href="#">Keyboard shortcuts</a></div>
+                        </div>
+                        <hr/>
+                        <div id="firstofdropdowncon">
+                            <div><img src="./images/noun-setting-5013898.png"/></div>
+                            <div><a href="#">Setting</a></div>
+                        </div>
+                        <hr/>
+                        <div id="firstofdropdowncon">
+                            <div><img src="./images/circle_mark_question_icon_217896.png"/></div>
+                            <div><a href="#">Help</a></div>
+                        </div>
+                        <div id="firstofdropdowncon">
+                            <div><img src="./images/noun-send-feedback-4172841.png"/></div>
+                            <div><a href="#">Send feedback</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div><button id="signinbtn"><i class="fa-solid fa-circle-user"></i> SIGN IN</button></div>
+            </div>
+        </div>
+        
+        </div>
+        
+            <div id="searchsugg">
+            </div>
+            </div>
+   
+    <div id="navContainer"></div>
+    <!-- filters -->
+    <div class="filters">
+        <button class="filter-options active filter0" >all</button>
+        <button class="filter-options filter1">CSS</button>
+        <button class="filter-options filter2">web development</button>
+        <button class="filter-options filter3">masai school</button>
+        <button class="filter-options filter4">entertainment</button>
+        <button class="filter-options filter5">python</button>
+        <button class="filter-options filter6">javascript</button>
+        <button class="filter-options filter7">html</button>
+        <button class="filter-options filter8">bhajan</button>
+        <button class="filter-options filter9">UPSC</button>
+        <button class="filter-options filter10">machine learning</button>
+        <button class="filter-options filter11">bollywood</button>
+        <button class="filter-options filter12">background music</button>
+        <button class="filter-options filter13">ringtones</button>
+        <button class="filter-options filter14">tv-serials</button>
+    </div>
+    <div class="video-container">
+        <!-- <div class="video">
+            <img src="" class="thumbnail" alt="">
+            <div class="content">
+                <img src="" class="channel-icon" alt="">
+                <div class="info">
+                    <h4 class="title"></h4>
+                    <p class="channel-name
+                    "></p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</body>
+</html>
+
+<script src="https://kit.fontawesome.com/7a0b7110fe.js" crossorigin="anonymous"></script>
+<script src="./scripts/navbar.js"></script>
+<script src="./scripts/youscript.js" type="module"></script>
+
+<script type="module">
+   
+var timerid;
+    const debounce= ()=>{
+        if(timerid){
+            clearTimeout(timerid);
+        }
+        timerid = setTimeout(()=>{
+            fetchkeyword();
+        },500)
+    }
+    function fetchkeyword(){
+        let keyword=document.getElementById("search").value;
+        //console.log(keyword);
+        let key='AIzaSyA08HO1lIeAG7uxop7-4CosZJrTSXTloVo';
+        let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=14&q=${keyword}&key=${key}`;
+        fetch(url).then((respone)=>{
+            return respone.json();
+        }).then((respone)=>{
+            console.log(respone);
+            showSuggestionOfKeyword(respone.items);
+        }).catch((err)=>{
+            console.log(err);
+        });
+    }
+    function showSuggestionOfKeyword(data){
+        //console.log(data);
+        document.querySelector("#searchsugg").innerHTML = "";
+        data.map((el)=>{
+            let div=document.createElement("div");
+            div.setAttribute("class","suggestionBySearch");
+            let h3=document.createElement("p");
+            h3.innerHTML = `&nbsp;<i class="fa-solid fa-magnifying-glass"></i>&nbsp;&nbsp;`+ el.snippet.title;
+            h3.addEventListener("click",()=>{
+                
+                searchConBySugg(el.snippet.title);
+            })
+            h3.setAttribute("class","suggpointereffect")
+            div.append(h3);
+            document.querySelector("#searchsugg").append(div);
+        })
+
+    }
+    const enterfuncSearch= (event)=>{
+        if(event.key === "Enter"){
+            let keyword=document.getElementById("search").value;
+            let key='AIzaSyA08HO1lIeAG7uxop7-4CosZJrTSXTloVo';
+            //console.log(keyword)
+            let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${keyword}&key=${key}`;
+            fetch(url).then((respone)=>{
+                return respone.json();
+            }).then((respone)=>{
+                console.log(respone);
+            }).catch((err)=>{
+                console.log(err);
+            });
+
+        }
+    }
+    const searchConBySugg= (keySearch)=>{
+        document.getElementById("search").value = keySearch;
+        let key='AIzaSyA08HO1lIeAG7uxop7-4CosZJrTSXTloVo';
+            //console.log(keyword)
+            let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${keySearch}&key=${key}`;
+            //console.log(keySearch);
+            fetch(url).then((respone)=>{
+                return respone.json();
+            }).then((respone)=>{
+                console.log(respone);
+            }).catch((err)=>{
+                console.log(err);
+            });
+    }
+</script>
