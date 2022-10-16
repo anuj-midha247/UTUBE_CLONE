@@ -1,6 +1,15 @@
 import navbar from "../components/navbar.js";
 import nav from "../components/nav.js";
-document.querySelector("#container").innerHTML = nav();
+import beforenav from "../components/beforelogin.js";
+
+let login=localStorage.getItem("login");
+
+if(login){
+  document.querySelector("#container").innerHTML = nav();
+}else{
+  document.getElementById("container").innerHTML = beforenav();
+}
+
 
 document.querySelector("#navContainer").innerHTML = navbar();
 
@@ -28,7 +37,7 @@ hidemenuIcon.addEventListener("click", () => {
 
 
 const videoCardContainer = document.querySelector(".video-container");
-let api_key = "AIzaSyDs2mqENl7X7TEW8iJFGlegakdZkDmIdyg";
+let api_key = "AIzaSyBF7hgcIclIRKQIaYEEs1czIJxSEY-SAGs";
 
 let video_http = "https://www.googleapis.com/youtube/v3/videos?";
 let channel_http = "https://www.googlepis.com/youtube/v3/channels?";
