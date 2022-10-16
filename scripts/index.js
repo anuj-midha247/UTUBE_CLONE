@@ -1,6 +1,15 @@
 import navbar from "../components/navbar.js";
 import nav from "../components/nav.js";
-document.querySelector("#container").innerHTML = nav();
+import beforenav from "../components/beforelogin.js";
+
+let login=localStorage.getItem("login");
+
+if(login){
+  document.querySelector("#container").innerHTML = nav();
+}else{
+  document.getElementById("container").innerHTML = beforenav();
+}
+
 
 document.querySelector("#navContainer").innerHTML = navbar();
 
