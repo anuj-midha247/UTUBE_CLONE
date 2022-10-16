@@ -244,6 +244,10 @@ hidemenuIcon.addEventListener("click", () => {
             var div1=document.createElement("div");
             var img=document.createElement("img");
             img.src = elem.snippet.thumbnails.high.url;
+            img.addEventListener("click", ()=>{
+                Listenerr(elem.id);
+                //console.log(elem);
+            })
             var div3=document.createElement("div");
             div3.setAttribute("id","flexForChannelNameandIcon")
             div1.append(img);
@@ -296,4 +300,11 @@ hidemenuIcon.addEventListener("click", () => {
         //console.log(ret);
         //return ret;
      }
+     function Listenerr(data) {
+    
+         //console.log(data.videoId);
+        localStorage.setItem("videoId", data.videoId);
+        location.href = "./video1.html";
+       
+    }
 </script>
