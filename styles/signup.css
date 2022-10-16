@@ -1,0 +1,109 @@
+* {
+  font-family: sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#mainForm {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(211, 197, 197);
+  padding: 30px 0 50px 50px;
+  margin: 3% 20%;
+  border-radius: 10px;
+}
+h6 {
+  font-size: 30px;
+  font-weight: 01;
+  margin: 10px;
+}
+h5 {
+  color: #1c60f3;
+  margin-bottom: 30px;
+}
+h6 + p {
+  margin-bottom: 30px;
+}
+#pass + P,
+#email + p {
+  font-size: 13px;
+  color: rgba(46, 44, 44, 0.886);
+  margin-bottom: 30px;
+}
+#sideLogo {
+  height: 350px;
+  width: 350px;
+}
+form {
+  display: grid;
+  width: 400px;
+}
+input[type="text"],
+select,
+textarea {
+  width: 49%;
+  padding: 10px;
+  border: 1px solid rgb(224, 222, 222);
+  border-radius: 4px;
+}
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(224, 222, 222);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+input[type="password"],
+select,
+textarea {
+  width: 49%;
+  padding: 10px;
+  border: 1px solid rgb(224, 222, 222);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+#button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+#next {
+  background-color: #1c60f3;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+#signin {
+  background-color: #fff;
+  border: none;
+  color: #1c60f3;
+}
+#signin:hover {
+  background-color: #cdd9f4;
+  color: blue;
+  padding: 10px;
+  border-radius: 5px;
+}
+#error {
+  display: flex;
+}
+#error1 {
+  color: red;
+  font-size: 12px;
+  line-height: 20px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+#error2 {
+  color: red;
+  font-size: 12px;
+  line-height: 20px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
