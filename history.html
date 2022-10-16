@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <link rel="stylesheet" href="./styles/upNavbar.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <style>
+         *{
+            font-family:  Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        #content-body{
+           display: flex;
+           flex-direction: row;
+        }
+        #headingtext{
+            padding: 2px;
+            margin-top: 40px;
+        }
+        .textcenter{
+            text-align: center;
+        }
+        #contcont{
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+            /* margin-top: ; */
+        }
+        #vidcont > img{
+            width: 240px;
+            height: 150px;
+        }
+        #threedetail{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 0px;
+        }
+        #textcont{
+            flex-grow: 4;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            margin-left: 20px;
+            margin-bottom: 30px;
+            /* justify-content: start; */
+            /* align-items: start; */
+        }
+        #wrapperdiv{
+            flex-grow: 4;
+            display: flex;
+            flex-direction: column;
+            margin: 10px 10%;
+        }
+        #textcont > h4{
+            margin: 0px;
+        }
+        #textcont > p{
+            margin: 0px;
+        }
+        #title{
+            flex-grow: 4;
+            font-family: "Roboto","Arial",sans-serif;
+    font-size: 1.8rem;
+    line-height: 2.0rem;
+    font-weight: 400;
+    white-space: normal;
+    color: #030303;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+        }
+        #channelname{
+            font-family: "Roboto","Arial",sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.8rem;
+    font-weight: 400;
+    max-height: 1.8rem;
+    overflow: hidden;
+    color: #606060;
+        }
+        #views{
+            font-family: "Roboto","Arial",sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.8rem;
+    font-weight: 400;
+    max-height: 1.8rem;
+    overflow: hidden;
+    margin-left: 8px;
+    color: #606060;
+        }
+        #descriptionvideo{
+            font-family: "Roboto","Arial",sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.8rem;
+    font-weight: 400;
+    max-height: 1.8rem;
+    overflow: hidden;
+    margin-left: 8px;
+    color: #606060;
+        }
+        #paratoday{
+            padding-top: 25px;
+            padding-bottom: 20px;
+        }
+        #cleardiv{
+            display: flex;
+            flex-direction: row;
+        }
+        #trashicon{
+            height: 20px;
+        }
+        #filters{
+            flex-grow: 2;
+            background-color: #f1f1f1;
+        }
+        #filterwraper{
+            margin: 20px;
+            color: #606060;
+        }
+        #historytype{
+            padding: 15px 10px 15px 6px;
+            color: #030303;
+            font-weight: 400;
+            /* margin: 10px; */
+        }
+        #input-checkbox-type{
+            display: flex;
+            flex-direction: row;
+            padding: 20px 20px 20px 8px;
+        }
+        #fullflex{
+            display: block;
+            /* justify-content: space-between; */
+
+        }
+        #watchhistory{
+            margin-left: 50px;
+        }
+        #clearhistory{
+            margin-left: 12px;
+        }
+        #divone{
+            display: flex;
+            flex-direction: row;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto';
+        }
+        #navbar{
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: white;
+            position: sticky;
+            padding: 0;
+            width: 95%;
+            height: 68px;
+        }
+        .youtubeicon{
+            width: 120px;
+            height: 60px;
+            margin-left: 20px;
+        }
+        .plusVidIcon{
+            width: 30px;
+            height: 17px;
+        }
+        #midnavbar{
+            display: flex;
+            align-items: center;
+            width: 38%;
+        }
+        #rightnavbar{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 10%;
+            min-width: 170px;
+            margin-right: 20px;
+        }
+        input{
+            width: 500px;
+            height: 40px;
+            font-size: 18px;
+        }
+        #searchbtn{
+            width: 50px;
+            height: 40px;
+        }
+        .fa-microphone{
+            margin-top: 3px;
+            margin-left: 10px;
+            margin-right: 10px;
+            font-size: 30px;
+            margin-left: 5px;
+            background-color: #efefef ;
+            border-radius: 25px;
+            
+            padding: 7px 10px;
+        }
+        .fa-bell{
+            font-size: 25px;
+        }
+        .userIcon{
+            width: 40px;
+            height: 40px;
+        }
+        
+        #usericondiv{
+            margin: auto;
+            position: relative;
+            display: inline-block;
+        }
+        .dropdowncon{
+            display: none;
+            position: absolute;
+            min-width: 250px;
+            border: 1px solid gray;
+            z-index: 1;
+            margin-top: -50px;
+            background-color: white;
+            left: -635%;
+            font-size: 16px;
+        }
+        .dropdowncon a{
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        #usericondiv:hover .dropdowncon{
+            display: block;
+        }
+        #wrapper{
+            display: flex;
+        }
+        #firstofdropdowncon{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 95%;
+            margin: auto;
+        }#firstofdropdowncon img{
+            width: 24px;
+            height: 24px;
+        }
+        .PforPrimeInDropdown{
+            color: white;
+            background-color: red;
+            padding: 0 5px;
+        }
+        #dropUserDetails{
+            display: flex;
+            text-align: start;
+        }
+        .Manageyourgooglebyicon{
+            color: blue;
+            margin-left: 17px;
+        }
+        
+        #searchsugg{
+            width: 500px;
+            margin-left: 29.80%;
+            border: 1px solid gray;
+            background-color: white;
+            z-index: 999;
+            position: absolute;
+            margin-top: -15px;
+        }
+        
+        .hidesearchsugg{
+            display: none;
+        }
+        .suggestionBySearch{
+            display: grid;
+            grid-template-columns: repeat(1,1fr);
+            width: 500px;
+            height: 22px;
+            font-size: 18px;
+            overflow: hidden;
+            padding-left: 10px;
+            
+            margin: auto;
+            margin-top: 13px;
+        
+            
+        }
+        #signinbtn{
+            padding: 10px 10px;
+            background-color: white;
+            font-size: 15px;
+            border: 1px solid blue;
+            border-color: blue;
+            color: blue;
+        
+        }
+        .fa{
+            font-size:20px;
+            margin: auto;
+            border-color: blue;
+        }
+        .suggpointereffect{
+            cursor: pointer;
+        }
+        #navbarpartforsugg {
+            top: 0;
+            position: sticky;
+        }
+        #content{
+            margin-left: 80px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="content-body">
+        <div id="navContainer">
+
+        </div>
+        <div id="wrapperdiv">
+            <div id="headingtext">
+                <h4>Watch history</h4>
+            </div>
+            <div id="historycontent">
+                
+            </div>
+        </div>
+        <div id="filters">
+           <div id="filterwraper">
+            <!-- <div id="filterwatchhistorysearch">
+                <img src="" alt="">
+                <input type="text" placeholder="Search watch history">
+             </div> -->
+             <h3 id="historytype">
+              History type
+             </h3>
+             <div id="input-checkbox-type">
+              <div id="fullflex">
+                <label for="watchhistory">Watch history</label>
+              <input type="checkbox" name="" checked id="watchhistory" placeholder="Watch history">
+              </div>
+              
+             </div>
+             <div id="cleardiv">
+              <img src="../../images/icons8-trash-50.png" alt="" id="trashicon">
+                 <h4 id="clearhistory"> CLEAR ALL WATCH HISTORY</h4>
+             </div>
+           </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://kit.fontawesome.com/7a0b7110fe.js" crossorigin="anonymous"></script>
+<script src="./scripts/navbar.js"></script>
+
+<script src="../../scripts/history.js" type="module"></script>
