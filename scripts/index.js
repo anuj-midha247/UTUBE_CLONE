@@ -53,12 +53,61 @@ fetch(
   .catch((err) => console.log(err));
 
 const getChannelIcon = (video_data) => {
+    fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${video_data.snippet.channelId}&key=${api_key}`)
+        .then(res => res.json())
+        .then(data => {
+        // console.log(data);
+            video_data.channelThumbnail = data.items[0].snippet.thumbnails.default.url;
+            makeVideoCard(video_data);
+    })
+}
+const makeVideoCard = (data ) => {
+
+    let div=document.createElement( "div");
+div.setAttribute("class", "video");
+let div1 = document.createElement("div");
+div1.setAttribute("class","photo")
+    let img = document.createElement("img");
+    img.src = data.snippet.thumbnails.high.url;
+img.setAttribute("class", "thumbnail");
+img.addEventListener("click", ()=>{
+    Listenerr(data);
+})
+div1.append(img);
+    let div2 = document.createElement("div");
+    div2.setAttribute("class", "content");
+    let img2 = document.createElement("img");
+    img2.setAttribute("class", "channel-icon");
+    img2.src = data.channelThumbnail;
+    let div3 = document.createElement("div");
+    div3.setAttribute("class", "info");
+    let h4 = document.createElement("h4");
+    h4.setAttribute("class", "title");
+    h4.innerText = data.snippet.title;
+    let p = document.createElement("p");
+    p.setAttribute("class", "channel-name");
+    p.innerText = data.snippet.channelTitle;
+    div3.append(h4, p);
+    div2.append(img2, div3);
+    div.append(div1, div2);
+    videoCardContainer.append(div);
+    
+
+
 
 }
-window.addEventListener("click", (ev) => {
-  if (ev.target.className != "search") {
+
+function Listenerr(data) {
+
+// console.log(data.id);
+localStorage.setItem("videoId", data.id);
+location.href = "./video1.html";
+
+}
+window.addEventListener("click",(ev)=>{
+if(ev.target.className!="search"){
     searchsugg.classList.add("hidesearchsugg");
-  } else {
+}else{
     searchsugg.classList.remove("hidesearchsugg");
-  }
-});
+}
+})
