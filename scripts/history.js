@@ -130,7 +130,7 @@ function showHistory(history_data){
    }
 }
 async function getshowdata(videoId,index){
-    let strm = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=AIzaSyDs2mqENl7X7TEW8iJFGlegakdZkDmIdyg`);
+    let strm = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=AIzaSyCSQQwYZr4tmsnfR6qnQ62O1iAK2qkpHik`);
     let vidData = await strm.json();
     console.log(vidData);
     // thumb nail
@@ -207,7 +207,9 @@ async function getshowdata(videoId,index){
     display.append(contcont);
 }
 async function setViewsandDesc(videoId){
-    let urltoviews = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoId}&key=AIzaSyDs2mqENl7X7TEW8iJFGlegakdZkDmIdyg`;
+    let harikey = "AIzaSyCSQQwYZr4tmsnfR6qnQ62O1iAK2qkpHik";
+    let otherkey = "AIzaSyDs2mqENl7X7TEW8iJFGlegakdZkDmIdyg";
+    let urltoviews = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoId}&key=${harikey}`;
     let strm = await fetch(urltoviews);
     let data = await strm.json();
     let views = data.items[0].statistics.viewCount;

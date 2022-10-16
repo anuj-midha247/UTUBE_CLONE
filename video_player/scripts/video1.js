@@ -17,7 +17,7 @@ hidemenuIcon.addEventListener("click", () => {
 });
 
 //   document.querySelector(".container").innerHTML = "";
-
+const videoId = localStorage.getItem("videoId");
 
 console.log(videoId);
 document.getElementById(
@@ -25,6 +25,23 @@ document.getElementById(
 ).src = `https://www.youtube.com/embed/${videoId}`;
 const apiKey = "AIzaSyA2xYxK5r5gwEClAeclSR8OAAy3i9QGueA" ;
 
+function getVideoUrl(videoId) {
+  let url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,statistics`;
+  videoDetails(url);
+}
+getVideoUrl(videoId);
+
+async function videoDetails(url) {
+  let res = await fetch(url);
+  let result = await res.json();
+  console.log("line no 41", result.items[0]);
+  let data = result.items[0];
+  appendVideoDetails(data);
+  let channelTitle = data.snippet.channelTitle;
+  getSearchResult(channelTitle);
+  let channelId = data.snippet.channelId;
+  getChanneUrl(channelId);
+}
 
 
 //channel details
@@ -154,3 +171,62 @@ function showDataToSideBar(arr) {
 //for watch later and liked videos.
 
 
+function setHistory(videoId){
+  let abcd = JSON.parse(localStorage.getItem("youtube-history")) || [];
+  let elem_not_present = true;
+  abcd.forEach((elem)=>{
+    if(videoId == elem.videoId){
+      elem_not_present = false;
+    }
+  })
+  let obj = {
+      "videoId": videoId
+  
+  }
+  console.log(typeof []);
+ if(elem_not_present){
+  abcd.push(obj);
+  
+  
+  localStorage.setItem("youtube-history",JSON.stringify(abcd));
+ }
+ 
+}
+setHistory(videoId);
+// code added by hari
+
+// watch later functionality hari
+document.querySelector("#savetowatchlater").addEventListener("click",function(){
+  addtoWatchlist(localStorage.getItem("videoId"));
+})
+function addtoWatchlist(videoId){
+  console.log("added to watch later"+videoId);
+  let watchlaterdata = JSON.parse(localStorage.getItem("watch-later")) || [];
+  let logedin = localStorage.getItem("userloged");
+  if(logedin == "true"){
+    let elem_not_present = true;
+    watchlaterdata.forEach((elem)=>{
+      if(videoId == elem.videoId){
+        elem_not_present = false;
+      }
+    })
+    let obj = {
+        "videoId": videoId
+    
+    }
+    
+   if(elem_not_present){
+    watchlaterdata.push(obj);
+    
+    
+    localStorage.setItem("watch-later",JSON.stringify(watchlaterdata));
+    alert("Added to Watch List")
+   }else{
+    alert("Video Already added");
+   }
+  }else{
+    alert("Please login");
+  }
+
+
+}
