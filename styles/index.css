@@ -282,7 +282,7 @@ hr{
 /* filters */
 
 .filters{
-    position: fixed; 
+    /* position: fixed;  */
     top: 62px;
     width: calc(100%-250px);
     height: 60px;

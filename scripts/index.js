@@ -4,12 +4,27 @@ import beforenav from "../components/beforelogin.js";
 
 let login=localStorage.getItem("login");
 
-if(login){
+// if(login){
+//   document.querySelector("#container").innerHTML = nav();
+// }else{
+//   document.getElementById("container").innerHTML = beforenav();
+// }
+if(login=="true"){
   document.querySelector("#container").innerHTML = nav();
-}else{
-  document.getElementById("container").innerHTML = beforenav();
-}
+  document.getElementById("signout").addEventListener("click",()=>{
+    localStorage.setItem("login",false);
+    alert("Signout successfull");
+    location.href ="./index.html";
+    document.querySelector("#container").innerHTML = beforenav();
 
+  })
+}else if(login=="false" || login==null){
+  document.querySelector("#container").innerHTML = beforenav();
+  document.getElementById("signinbtn").addEventListener("click",()=>{
+    location.href="./signin-mail.html";
+    document.querySelector("#container").innerHTML = nav();
+  })
+}
 
 document.querySelector("#navContainer").innerHTML = navbar();
 
@@ -120,3 +135,8 @@ if(ev.target.className!="search"){
     searchsugg.classList.remove("hidesearchsugg");
 }
 })
+
+
+
+
+

@@ -1,6 +1,7 @@
 document.querySelector("form").addEventListener("submit", myForm);
 
 var userData = JSON.parse(localStorage.getItem("userData")) || [];
+let flag = false;
 console.log(userData);
 function myForm() {
   event.preventDefault();
@@ -100,12 +101,20 @@ function myForm() {
         document.getElementById("error4").style.color = "";
         document.getElementById("error4").innerText = "";
 
-        userData.push(obj);
-
-        localStorage.setItem("userData", JSON.stringify(userData));
-        userData.forEach((el) => {
-          let email = document.getElementById("email").value;
-          if (el.email === email) {
+        console.log("userData:", userData.length);
+        if (userData.length === 0) {
+          userData.push(obj);
+          localStorage.setItem("userData", JSON.stringify(userData));
+          location.href = "./signin-mail.html";
+        } else {
+          userData.forEach((el) => {
+            console.log("el:", el);
+            let email = document.getElementById("email").value;
+            if (el.email === email) {
+              flag = true;
+            }
+          });
+          if (flag === true) {
             document.getElementById("email").style.border = "";
             document.getElementById("error3").innerText = "";
             document.getElementById("email").style.border = "1px solid red";
@@ -115,9 +124,11 @@ function myForm() {
           } else {
             document.getElementById("email").style.border = "";
             document.getElementById("error3").innerText = "";
+            userData.push(obj);
+            localStorage.setItem("userData", JSON.stringify(userData));
             location.href = "./signin-mail.html";
           }
-        });
+        }
       }
     }
     console.log("userData:", userData);

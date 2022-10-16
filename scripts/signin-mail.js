@@ -19,7 +19,9 @@ function myForm() {
       if (el.email === email) {
         document.getElementById("email").style.border = "";
         document.getElementById("error").innerText = "";
-        var emailloop = localStorage.setItem("emailloop", el.name1);
+        localStorage.setItem("emailloop", el.email);
+        localStorage.setItem("name", el.name1);
+        //localStorage.setItem("login", true);
         location.href = "./signin-password.html";
       }
       if (el.email !== email) {
