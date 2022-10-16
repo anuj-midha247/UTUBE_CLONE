@@ -323,3 +323,12 @@ hr{
 .thumbnail{
     cursor: pointer;
 }
+
+.photo :hover{
+    transition: transform 0.8s;
+    transform: scale(1.5);
+    /* outline:1px solid peachpuff; */
+}
+/* .hover1:hover {
+    
+     } */
