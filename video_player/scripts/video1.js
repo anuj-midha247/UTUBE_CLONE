@@ -17,7 +17,7 @@ hidemenuIcon.addEventListener("click", () => {
 });
 
 //   document.querySelector(".container").innerHTML = "";
-const videoId = localStorage.getItem("videoId");
+
 
 console.log(videoId);
 document.getElementById(
@@ -25,23 +25,7 @@ document.getElementById(
 ).src = `https://www.youtube.com/embed/${videoId}`;
 const apiKey = "AIzaSyA2xYxK5r5gwEClAeclSR8OAAy3i9QGueA" ;
 
-function getVideoUrl(videoId) {
-  let url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,statistics`;
-  videoDetails(url);
-}
-getVideoUrl(videoId);
 
-async function videoDetails(url) {
-  let res = await fetch(url);
-  let result = await res.json();
-  console.log("line no 41", result.items[0]);
-  let data = result.items[0];
-  appendVideoDetails(data);
-  let channelTitle = data.snippet.channelTitle;
-  getSearchResult(channelTitle);
-  let channelId = data.snippet.channelId;
-  getChanneUrl(channelId);
-}
 
 //channel details
 function getChanneUrl(channelId) {

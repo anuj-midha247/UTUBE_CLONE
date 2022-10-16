@@ -119,10 +119,13 @@ function showHistory(history_data){
       tody.append(paratoday);
       display.append(tody);
 
-        history_data.forEach((elem,index)=>{
-            getshowdata(elem.videoId,index);
+    //     history_data.forEach((elem,index)=>{
+    //         getshowdata(elem.videoId,index);
        
-    })
+    // })
+    for(let i=history_data.length-1;i>=0;i--){
+        getshowdata(history_data[i].videoId,i);
+    }
 
    }
 }
@@ -178,7 +181,8 @@ async function getshowdata(videoId,index){
     })
     pchannelname.innerText = channelName;
     let pviews = document.createElement("p");
-    pviews.setAttribute("id","views");
+    pviews.setAttribute("class","views");
+    pviews.setAttribute("id","views"+videoId);
     ////additional change
     pviews.innerText = "";
     threedetail.append(pchannelname,pviews);
@@ -187,7 +191,7 @@ async function getshowdata(videoId,index){
     descriptionvideo.setAttribute("id","descriptionvideo");
     /// additional change
     descriptionvideo.innerText = "";
-    // setViewsandDesc(elem.videoId);
+     setViewsandDesc(videoId);
     descriptionvideo.addEventListener("click",function(){
         localStorage.setItem("videoId",videoId);
         location.href = "./video1.html";
@@ -202,9 +206,25 @@ async function getshowdata(videoId,index){
     })
     display.append(contcont);
 }
-// async function setViewsandDesc(videoId){
-//     let strm = await fetch()
-// }
+async function setViewsandDesc(videoId){
+    let urltoviews = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&id=${videoId}&key=AIzaSyDs2mqENl7X7TEW8iJFGlegakdZkDmIdyg`;
+    let strm = await fetch(urltoviews);
+    let data = await strm.json();
+    let views = data.items[0].statistics.viewCount;
+    console.log(views);
+    let view_element = document.getElementById("views"+videoId);
+    let viewtext = "";
+    if(views >= 999 && views < 1000000){
+        viewtext = Math.round(views / 1000);
+        viewtext += "K";
+    }else if(views >= 1000000){
+        viewtext = Math.round(views / 1000000);
+        viewtext += "M";
+    }else{
+        viewtext = views;
+    }
+    view_element.innerHTML = viewtext+" views";
+}
 function showClose(index){
     event.preventDefault();
     let loc = document.getElementById("closeimg"+index);
