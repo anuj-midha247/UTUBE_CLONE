@@ -17,8 +17,8 @@ function navbar() {
             <hr>
             <div class="nav-section">
                 <li class="nav-text"><a href="#"><i class="fas fa-play-circle nav-icon"></i>Library</a></li>
-                <li class="nav-text"><a href="#"><i class="fas fa-history nav-icon"></i>History</a></li>
-                <li class="nav-text"><a href="#"><i class="fas fa-clock nav-icon"></i>Watch Later</a></li>
+                <li class="nav-text"><a href="./history.html"><i class="fas fa-history nav-icon"></i>History</a></li>
+                <li class="nav-text"><a href="./watchlist.html"><i class="fas fa-clock nav-icon"></i>Watch Later</a></li>
             </div>
         </ul>
     </nav>
