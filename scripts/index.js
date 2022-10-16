@@ -214,7 +214,7 @@ function Listenerr(data) {
     
     // console.log(data.id);
     localStorage.setItem("videoId", data.id);
-    location.href = "../video1.html";
+    location.href = "./video1.html";
    
 }
 window.addEventListener("click",(ev)=>{
