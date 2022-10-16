@@ -286,7 +286,9 @@
 <script src="./scripts/youscript.js" type="module"></script>
 
 <script type="module">
-   
+   document.getElementById("signinbtn").addEventListener("click", ()=>{
+    location.href='./signin-mail.html'
+   })
 var timerid;
     const debounce= ()=>{
         if(timerid){
@@ -358,4 +360,5 @@ var timerid;
                 console.log(err);
             });
     }
+
 </script>

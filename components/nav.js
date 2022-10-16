@@ -53,7 +53,7 @@ function nav() {
             </div>
             <div id="firstofdropdowncon">
                 <div><img src="./images/noun-sign-out-2211244.png"/></div>
-                <div><a href="#">Sign Out</a></div>
+                <div><a href="./you.html">Sign Out</a></div>
             </div>
             <hr/>
             <div id="firstofdropdowncon">
