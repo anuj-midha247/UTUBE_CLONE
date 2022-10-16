@@ -62,5 +62,3 @@ window.addEventListener("click", (ev) => {
     searchsugg.classList.remove("hidesearchsugg");
   }
 });
-var userdata = JSON.parse(localStorage.getItem("userdata"));
-document.querySelector(".userName").innerHTML = "Hello " + userdata.name1;
