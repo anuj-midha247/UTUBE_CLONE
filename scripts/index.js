@@ -177,13 +177,16 @@ const makeVideoCard = (data ) => {
 
     
         let div=document.createElement( "div");
-        div.setAttribute("class", "video");
+    div.setAttribute("class", "video");
+    let div1 = document.createElement("div");
+    div1.setAttribute("class","photo")
         let img = document.createElement("img");
         img.src = data.snippet.thumbnails.high.url;
     img.setAttribute("class", "thumbnail");
     img.addEventListener("click", ()=>{
         Listenerr(data);
     })
+    div1.append(img);
         let div2 = document.createElement("div");
         div2.setAttribute("class", "content");
         let img2 = document.createElement("img");
@@ -199,7 +202,7 @@ const makeVideoCard = (data ) => {
         p.innerText = data.snippet.channelTitle;
         div3.append(h4, p);
         div2.append(img2, div3);
-        div.append(img, div2);
+        div.append(div1, div2);
         videoCardContainer.append(div);
         
   
