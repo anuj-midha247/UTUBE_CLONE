@@ -257,7 +257,8 @@ async function getandShowData(videoId,index){
     let vidData = await strm.json();
     console.log(vidData);
     if(index == 0){
-
+        let firstimgrender = document.getElementById("firstimg");
+        firstimgrender.src = vidData.items[0].snippet.thumbnails.high.url;
     }
     // let title = vidData.items[0].snippet.title;
     // let channelName = vidData.items[0].snippet.channelTitle;
@@ -274,7 +275,7 @@ async function getandShowData(videoId,index){
 function showDot(index){
     event.preventDefault();
     let loc = document.getElementById("threedotimg"+index);
-    loc.src = "../../images/noun-three-dots-4760951.png";
+    loc.src = "../../images/icons8-trash-50.png";
     // loc.addEventListener("click",function(){
     //     removeVideo(index);
     // })
