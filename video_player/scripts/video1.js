@@ -21,14 +21,17 @@ hidemenuIcon.addEventListener("click", () => {
 
 
 //   document.querySelector(".container").innerHTML = "";
- const videoId = "MXzHoJ3SbeY";
-  const apiKey = "AIzaSyBsgBDM5q-Vc7KeiUV0jmcIS1hziIN2ZWc";
+ const videoId = localStorage.getItem("videoId");
+ console.log(videoId);
+ document.getElementById("video-frame").src = `https://www.youtube.com/embed/${videoId}`
+  const apiKey = "AIzaSyATVei1ZRxX16oEm_9QB3xMj0Rs87YxZEQ";
 
   function getVideoUrl(videoId) {
     let url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,statistics`;
     videoDetails(url);
   }
-  // getVideoUrl(videoId);
+  getVideoUrl(videoId);
+  
 
   async function videoDetails(url) {
     let res = await fetch(url);
@@ -38,14 +41,16 @@ hidemenuIcon.addEventListener("click", () => {
     appendVideoDetails(data);
     let channelTitle = data.snippet.channelTitle;
     getSearchResult(channelTitle);
+    let channelId = data.snippet.channelId;
+    getChanneUrl(channelId);
   }
 
   //channel details
-  function getChanneUrl() {
-    let url = `https://youtube.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=UCCJsQKOKArvDksacfT2ryQw&key=${apiKey}`;
+  function getChanneUrl(channelId) {
+    let url = `https://youtube.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${channelId}&key=${apiKey}`;
     channelDetails(url);
   }
-  getChanneUrl();
+  
 
   async function channelDetails(url) {
     let res = await fetch(url);
@@ -57,6 +62,7 @@ hidemenuIcon.addEventListener("click", () => {
   }
 
   function appendVideoDetails(data) {
+    
     
     let videoTitle = document.getElementById("videoTitle");
     videoTitle.innerText = data.snippet.title;
@@ -130,8 +136,9 @@ hidemenuIcon.addEventListener("click", () => {
 
   function showDataToSideBar(arr) {
 
-    console.log(arr);
     const container = document.querySelector(".right-sidebar");
+    container.innerHTML = "";
+    console.log(arr);
     arr.shift();
     
     arr.forEach((ele) => {
@@ -157,7 +164,9 @@ hidemenuIcon.addEventListener("click", () => {
       item.append(sThumbnail, videoInfo);
         item.addEventListener("click", () => {
           let videoId = ele.id.videoId;
-          getVideoUrl(videoId);
+          document.getElementById("video-frame").src = `https://www.youtube.com/embed/${videoId}`
+          let url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,statistics`;
+          videoDetails(url);
           console.log(videoId);
         });
       container.append(item);

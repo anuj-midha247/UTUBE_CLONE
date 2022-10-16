@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/signup.css" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div id="mainForm">
+      <div id="form">
+        <form>
+          <img
+            src="https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+            alt=""
+            width="100px" />
+          <h6>Create your Google Account</h6>
+          <p>to continue to YouTube</p>
+
+          <div>
+            <input placeholder="First Name" id="name1" type="text" />
+            <input placeholder="Last Name" id="name2" type="text" />
+          </div>
+          <div id="error">
+            <div id="error1"></div>
+            <div id="error2"></div>
+          </div>
+
+          <input placeholder="Your email address" id="email" type="email" />
+          <p id="error3">
+            You'll need to confirm that this email blongs to you.
+          </p>
+          <h5>Creat new Gmail adress instead</h5>
+
+          <div id="pass">
+            <input placeholder="password" id="password1" type="password" />
+            <input placeholder="confirm" id="password2" type="password" />
+          </div>
+          <p id="error4">
+            Use 8 or more characters with a mix of letters, numbers & symbols
+          </p>
+          <div id="button">
+            <input type="button" value="Sign in instead" id="signin" />
+            <input type="submit" value="NEXT" id="next" />
+          </div>
+        </form>
+      </div>
+      <div>
+        <img src="./images/01.png" alt="side Logo" id="sideLogo" />
+      </div>
+    </div>
+  </body>
+</html>
+<script src="./scripts/signup.js"></script>
