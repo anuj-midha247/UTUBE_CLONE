@@ -22,108 +22,7 @@ hidemenuIcon.addEventListener("click", () => {
     content.classList.remove('active');
 })
 
-// const apiKey = "AIzaSyBF7hgcIclIRKQIaYEEs1czIJxSEY-SAGs";
-// var popUrl = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=contentDetails&part=statistics&chart=mostPopular&maxResults=100&regionCode=IN&key=${apiKey}`;
-// popular(popUrl);
-// async function popular(popUrl) {
-//     var data = await fetch(popUrl);
-//     var getData = await data.json();
-//     // console.log(getData.items);
-//     popDisp(getData.items);
-// }
 
-
-// function popDisp(data){
-//     let videodiv = document.getElementById("mainContent");
-//     let insertdata ="";
-//   data.map((ele)=>{
-//     const{id, snippet:{thumbnails:{high:{url}},title,channelTitle},statistics:{viewCount}}=ele;
-//     let views=0;
-//     if(viewCount>1000000){
-//         views=`${parseInt(viewCount/1000000)}M`;
-//     }
-//     else if(viewCount>999){
-//         views=`${parseInt(viewCount/1000)}K`;
-//     }
-//     insertdata += `<div class="viddata" >
-//                         <div class="thumb"><img src="${url}" alt=""></div>
-//                         <div class="viddetailbox">
-//                         <div class="channelogo">
-//                             <img src="" alt="">
-//                         </div>
-//                         <div class="viddetail">
-//                             <h4>${title}</h4>
-//                             <p>${channelTitle}</p>
-//                             <p><span>${views} </span><span> views</span></p>
-//                         </div>
-//                     </div>
-//                 </div>`;
-//   })
-//   videodiv.innerHTML=insertdata;
-//     // addEventListenerr(data);
-// }
-
-// document.querySelector("#bolly-music").addEventListener("click", async () => {
-//     const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&order=relevance&q=${'BollyWood Music'}&videoCaption=any&key=${apiKey}`;
-//     const btn = document.querySelector("#bolly-music");
-//     const all = document.querySelector("#all");
-//     const back = document.querySelector("#back-music");
-//     const upsc = document.querySelector("#upsc"); 
-//     const bhajan = document.querySelector("#bhajan");
-//     btn.style.backgroundColor = "black";
-//     btn.style.color = "#fff";
-//     all.style.backgroundColor = "#fff";
-//     all.style.color = "black";
-//     back.style.backgroundColor = "#fff";
-//     back.style.color = "black";
-//     upsc.style.backgroundColor = "#fff";
-//     upsc.style.color = "black";
-//     bhajan.style.backgroundColor = "#fff";
-//     bhajan.style.color = "black";
-//     const data = await fetch(url);
-//     const getData = await data.json();
-//     // console.log(getData.items);
-//     displayData(getData.items);
-// })
-// function displayData(data) {
-//     console.log(data);
-//     let videoDiv = document.querySelector(".video-container");
-//     // videoDiv.innerText = "";
-//   let insert = "";
-//   data.map((ele) => {
-//     // console.log(ele);
-//     const {
-//       id: { videoId },
-//       snippet: {
-//         thumbnails: {
-//           high: { url },
-//         },
-//         title,
-//         channelTitle,
-//       }
-//     } = ele;
-//     if (videoId != undefined) {
-//       insert += `
-//                         <div class="viddata">
-//                         <div class="thumb"><img src="${url}" alt="${title}"></div>
-//                         <div class="viddetailbox">
-//                         <div class="channelogo">
-//                             <img src="" alt="">
-//                         </div>
-//                         <div class="viddetail">
-//                             <h4>${title}</h4>
-//                             <p>${channelTitle}</p>
-//                             <p><span></span><span> views</span></p>
-//                         </div>
-//                         </div>
-//                     </div>
-//                 `;
-//     }
-//   });
-//     videoDiv.innerHTML = insert;
-//     addEventListenerr(data);
-// }
-// displayData(data);
 
 
 
@@ -161,21 +60,7 @@ const getChannelIcon = (video_data) => {
 }
     
 const makeVideoCard = (data ) => {
-//    console.log(data.id);
-    // videoCardContainer.innerHTML += `
-    // <div class="video" >
-    //             <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="" >
-    //             <div class="content">
-    //                 <img src="${data.channelThumbnail}" class="channel-icon" alt="">
-    //                 <div class="info">
-    //                     <h4 class="title">${data.snippet.title}</h4>
-    //                     <p class="channel-name">${data.snippet.channelTitle}</p>
-    //                 </div>
-    //             </div>
-    //         </div>
-    // `;
 
-    
         let div=document.createElement( "div");
     div.setAttribute("class", "video");
     let div1 = document.createElement("div");
