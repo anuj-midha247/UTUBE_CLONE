@@ -10,59 +10,59 @@ import nav from "../components/nav.js";
 //     channelName: "freeCodeCamp",
 //     videoId : "JLfkvvHqSgM"
 // }
-let tempdata = [
-    {
-        img : "https://i.ytimg.com/vi/31nqsOYjhEo/hqdefault.jpg",
-        title: "JABLA | Episode 1 | Webseries | Fliq",
-        channelName: "Karikku Fliq",
-        videoId: "31nqsOYjhEo"
-    },{
-        img : "https://i.ytimg.com/vi/sxqQRZOZJVw/hqdefault.jpg",
-        title: "Aston Martin DBX 707 - Rs. 5.63 Crore Super SUV | Faisal Khan",
-        channelName: "Faisal Khan",
-        videoId: "sxqQRZOZJVw"
-    },{
-        img : "https://i.ytimg.com/vi/gqiyN4yP4Pc/hqdefault.jpg",
-        title: "Automate Kubernetes Troubleshooting With Komodor",
-        channelName: "Kunal Kushwaha",
-        videoId: "gqiyN4yP4Pc"
-    },{
-        img : "https://i.ytimg.com/vi/xK9s8MnV5MA/hqdefault.jpg",
-        title: "Harsha sai || Roasted part3 || sampath",
-        channelName: "Sampath Talk Show",
-        videoId: "xK9s8MnV5MA" 
-    },{
-        img : "https://i.ytimg.com/vi/4cEApCyt_L0/hqdefault.jpg",
-        title: "This is the BEST BUDGET Laptop for Students",
-        channelName: "TechWiser",
-        videoId: "4cEApCyt_L0"   
-    },{
-        img : "https://i.ytimg.com/vi/0IAPZzGSbME/hqdefault.jpg",
-        title: "1. Introduction to Algorithms",
-        channelName: "Abdul Bari",
-        videoId: "0IAPZzGSbME"   
-    },{
-        img : "https://i.ytimg.com/vi/74ldFZR6WS4/hqdefault.jpg",
-        title: "Car Doesn't Matter If You Enjoy Driving!",
-        channelName: "Fasil Khan",
-        videoId: "74ldFZR6WS4"   
-    },{
-        img : "https://i.ytimg.com/vi/fe-xbF1ztXo/mqdefault.jpg",
-        title: "Types Of Friends | Jordindian | Friendship Day",
-        channelName: "Jordindian",
-        videoId: "fe-xbF1ztXo"    
-    },{
-        img : "https://i.ytimg.com/vi/gM6l3TR_6i0/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAeE8R7XA0qRVW2ngmLID2hCxsVxQ",
-        title: "Tour an Indian students tiny Paris apartment with a view",
-        channelName: "Brut India",
-        videoId: "gM6l3TR_6i0" 
-    },{
-        img : "https://i.ytimg.com/vi/sgtQT4uPbjs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCXu-BEmF-loictnvxXk1h5ufhvgA",
-        title: "Investing vs Loan Repayment | 2022 | CA Rachana Ranade",
-        channelName: "CA Rachana Phadke Ranade",
-        videoId: "sgtQT4uPbjs" 
-    }
-]
+// let tempdata = [
+//     {
+//         img : "https://i.ytimg.com/vi/31nqsOYjhEo/hqdefault.jpg",
+//         title: "JABLA | Episode 1 | Webseries | Fliq",
+//         channelName: "Karikku Fliq",
+//         videoId: "31nqsOYjhEo"
+//     },{
+//         img : "https://i.ytimg.com/vi/sxqQRZOZJVw/hqdefault.jpg",
+//         title: "Aston Martin DBX 707 - Rs. 5.63 Crore Super SUV | Faisal Khan",
+//         channelName: "Faisal Khan",
+//         videoId: "sxqQRZOZJVw"
+//     },{
+//         img : "https://i.ytimg.com/vi/gqiyN4yP4Pc/hqdefault.jpg",
+//         title: "Automate Kubernetes Troubleshooting With Komodor",
+//         channelName: "Kunal Kushwaha",
+//         videoId: "gqiyN4yP4Pc"
+//     },{
+//         img : "https://i.ytimg.com/vi/xK9s8MnV5MA/hqdefault.jpg",
+//         title: "Harsha sai || Roasted part3 || sampath",
+//         channelName: "Sampath Talk Show",
+//         videoId: "xK9s8MnV5MA" 
+//     },{
+//         img : "https://i.ytimg.com/vi/4cEApCyt_L0/hqdefault.jpg",
+//         title: "This is the BEST BUDGET Laptop for Students",
+//         channelName: "TechWiser",
+//         videoId: "4cEApCyt_L0"   
+//     },{
+//         img : "https://i.ytimg.com/vi/0IAPZzGSbME/hqdefault.jpg",
+//         title: "1. Introduction to Algorithms",
+//         channelName: "Abdul Bari",
+//         videoId: "0IAPZzGSbME"   
+//     },{
+//         img : "https://i.ytimg.com/vi/74ldFZR6WS4/hqdefault.jpg",
+//         title: "Car Doesn't Matter If You Enjoy Driving!",
+//         channelName: "Fasil Khan",
+//         videoId: "74ldFZR6WS4"   
+//     },{
+//         img : "https://i.ytimg.com/vi/fe-xbF1ztXo/mqdefault.jpg",
+//         title: "Types Of Friends | Jordindian | Friendship Day",
+//         channelName: "Jordindian",
+//         videoId: "fe-xbF1ztXo"    
+//     },{
+//         img : "https://i.ytimg.com/vi/gM6l3TR_6i0/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAeE8R7XA0qRVW2ngmLID2hCxsVxQ",
+//         title: "Tour an Indian students tiny Paris apartment with a view",
+//         channelName: "Brut India",
+//         videoId: "gM6l3TR_6i0" 
+//     },{
+//         img : "https://i.ytimg.com/vi/sgtQT4uPbjs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCXu-BEmF-loictnvxXk1h5ufhvgA",
+//         title: "Investing vs Loan Repayment | 2022 | CA Rachana Ranade",
+//         channelName: "CA Rachana Phadke Ranade",
+//         videoId: "sgtQT4uPbjs" 
+//     }
+// ]
 /////
 // tempfuncStoredata(data);
 // function tempfuncStoredata(data){
@@ -70,7 +70,7 @@ let tempdata = [
 // for(let i=0;i<10;i++){
 //     arr.push(data);
 // }
-localStorage.setItem("watch-later",JSON.stringify(tempdata));
+// localStorage.setItem("watch-later",JSON.stringify(tempdata));
 //}
 ///
 
@@ -102,6 +102,7 @@ function showdata(watchlaterdata){
     let contentdiv = document.getElementById("watchlaterContent");
     contentdiv.innerHTML = "";
  watchlaterdata.forEach((elem,index)=>{
+    getandShowData(elem.videoId,index);
 //     let watchcont = document.createElement("div");
 
 //      watchcont.innerHTML = `
@@ -147,10 +148,16 @@ function showdata(watchlaterdata){
  let contcont = document.createElement("div");
  contcont.setAttribute("class","contcont")
  let vidimg = document.createElement("div");
+ // rendering img later
  vidimg.setAttribute("id","vidImg");
+//  vidimg.setAttribute("id","vidImg"+elem.videoId);
  let vidtumb = document.createElement("img");
- vidtumb.setAttribute("id","tumbimg");
- vidtumb.src = elem.img;
+ vidtumb.setAttribute("class","tumbimg");
+
+  vidtumb.setAttribute("id","tumbimg"+elem.videoId);
+//  let vidtumb = document.createElement("img");
+ vidtumb.src = "";
+
  vidimg.append(vidtumb);
 
  let textcont = document.createElement("div");
@@ -158,8 +165,8 @@ function showdata(watchlaterdata){
  let titlecont = document.createElement("h3");
  titlecont.setAttribute("id","titlecont");
  let alink = document.createElement("a");
-//  alink.setAttribute("href","./video1.html");
- alink.innerText = elem.title;
+  alink.setAttribute("id","alink"+elem.videoId);
+ alink.innerText = "";
  alink.addEventListener("click",function(){
     localStorage.setItem("videoId",elem.videoId);
     location.href = "./video1.html";
@@ -167,7 +174,8 @@ function showdata(watchlaterdata){
  titlecont.append(alink);
 
  let channelname = document.createElement("p");
- channelname.setAttribute("id","channelname");
+ channelname.setAttribute("class","channelname");
+ channelname.setAttribute("id","channelname"+elem.videoId);
  channelname.innerText = elem.channelName;
  textcont.append(titlecont,channelname);
  wrapcont.addEventListener("click",function(){
@@ -215,7 +223,7 @@ function showdata(watchlaterdata){
     localStorage.setItem("videoId",watchlaterdata[0].videoId);
     location.href = "./video1.html";
  })
-   firstimg.src = watchlaterdata[0].img;
+//    firstimg.src = watchlaterdata[0].img;
    firstimg.setAttribute("id","firstimg");
    let h2watch = document.createElement("h2");
    h2watch.innerText = "Watch later";
@@ -241,6 +249,27 @@ function showdata(watchlaterdata){
    hrtag.setAttribute("id","hrextracontent");
    extracont.append(firstimg,h2watch,paravideos,contdivpara,hrtag);
  }
+}
+async function getandShowData(videoId,index){
+    let harikey = "AIzaSyCSQQwYZr4tmsnfR6qnQ62O1iAK2qkpHik";
+    let other_key = "AIzaSyDs2mqENl7X7TEW8iJFGlegakdZkDmIdyg";
+    let strm = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${harikey}`);
+    let vidData = await strm.json();
+    console.log(vidData);
+    if(index == 0){
+
+    }
+    // let title = vidData.items[0].snippet.title;
+    // let channelName = vidData.items[0].snippet.channelTitle;
+    let imgrender = document.getElementById("tumbimg"+videoId);
+    imgrender.src = vidData.items[0].snippet.thumbnails.high.url;
+    console.log(vidData.items[0].snippet.thumbnails.high.url);
+    // https://upload.wikimedia.org/wikipedia/commons/3/3c/IMG_logo_%282017%29.svg
+    let alinkrenderer = document.getElementById("alink"+videoId);
+    console.log(vidData.items[0].snippet.title);
+    alinkrenderer.innerText = vidData.items[0].snippet.title;
+    let channelrender = document.getElementById("channelname"+videoId);
+    channelrender.innerText = vidData.items[0].snippet.channelTitle;
 }
 function showDot(index){
     event.preventDefault();

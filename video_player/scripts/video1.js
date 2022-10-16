@@ -22,28 +22,12 @@ hidemenuIcon.addEventListener("click", () => {
 
 //   document.querySelector(".container").innerHTML = "";
  const videoId = localStorage.getItem("videoId");
- // code added by hari
- 
-function setHistory(videoId){
-  let abcd = JSON.parse(localStorage.getItem("youtube-history")) || [];
-  let obj = {
-      "videoId": videoId
-  
-  }
-  console.log(typeof []);
-  // if(Array.isArray(abcd)){
-    abcd.push(obj);
-  // }
-  
-  localStorage.setItem("youtube-history",JSON.stringify(abcd));
-}
-setHistory(videoId);
-// code added by hari
 
 
  console.log(videoId);
  document.getElementById("video-frame").src = `https://www.youtube.com/embed/${videoId}`
   const apiKey = "AIzaSyATVei1ZRxX16oEm_9QB3xMj0Rs87YxZEQ";
+  
 
   function getVideoUrl(videoId) {
     let url = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,statistics`;
@@ -194,3 +178,55 @@ setHistory(videoId);
 
 
 // videoPage("MXzHoJ3SbeY");
+ // code added by hari
+ 
+ function setHistory(videoId){
+  let abcd = JSON.parse(localStorage.getItem("youtube-history")) || [];
+  let elem_not_present = true;
+  abcd.forEach((elem)=>{
+    if(videoId == elem.videoId){
+      elem_not_present = false;
+    }
+  })
+  let obj = {
+      "videoId": videoId
+  
+  }
+  console.log(typeof []);
+ if(elem_not_present){
+  abcd.push(obj);
+  
+  
+  localStorage.setItem("youtube-history",JSON.stringify(abcd));
+ }
+ 
+}
+setHistory(videoId);
+// code added by hari
+
+// watch later functionality hari
+document.querySelector("#savetowatchlater").addEventListener("click",function(){
+  addtoWatchlist(localStorage.getItem("videoId"));
+})
+function addtoWatchlist(videoId){
+  console.log("added to watch later"+videoId);
+  let watchlaterdata = JSON.parse(localStorage.getItem("watch-later")) || [];
+  let elem_not_present = true;
+  watchlaterdata.forEach((elem)=>{
+    if(videoId == elem.videoId){
+      elem_not_present = false;
+    }
+  })
+  let obj = {
+      "videoId": videoId
+  
+  }
+  
+ if(elem_not_present){
+  watchlaterdata.push(obj);
+  
+  
+  localStorage.setItem("watch-later",JSON.stringify(watchlaterdata));
+ }
+
+}
