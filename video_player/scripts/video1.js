@@ -22,6 +22,25 @@ hidemenuIcon.addEventListener("click", () => {
 
 //   document.querySelector(".container").innerHTML = "";
  const videoId = localStorage.getItem("videoId");
+ // code added by hari
+ 
+function setHistory(videoId){
+  let abcd = JSON.parse(localStorage.getItem("youtube-history")) || [];
+  let obj = {
+      "videoId": videoId
+  
+  }
+  console.log(typeof []);
+  // if(Array.isArray(abcd)){
+    abcd.push(obj);
+  // }
+  
+  localStorage.setItem("youtube-history",JSON.stringify(abcd));
+}
+setHistory(videoId);
+// code added by hari
+
+
  console.log(videoId);
  document.getElementById("video-frame").src = `https://www.youtube.com/embed/${videoId}`
   const apiKey = "AIzaSyATVei1ZRxX16oEm_9QB3xMj0Rs87YxZEQ";
