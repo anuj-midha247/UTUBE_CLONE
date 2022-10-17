@@ -202,7 +202,7 @@ document.querySelector("#savetowatchlater").addEventListener("click",function(){
 function addtoWatchlist(videoId){
   console.log("added to watch later"+videoId);
   let watchlaterdata = JSON.parse(localStorage.getItem("watch-later")) || [];
-  let logedin = localStorage.getItem("userloged");
+  let logedin = localStorage.getItem("login") || false;
   if(logedin == "true"){
     let elem_not_present = true;
     watchlaterdata.forEach((elem)=>{

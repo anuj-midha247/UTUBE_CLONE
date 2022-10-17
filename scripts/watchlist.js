@@ -101,6 +101,8 @@ showdata(watchlaterdata);
 function showdata(watchlaterdata){
     let contentdiv = document.getElementById("watchlaterContent");
     contentdiv.innerHTML = "";
+    let logedin = localStorage.getItem("login") || false; 
+    if(logedin == "true"){
  watchlaterdata.forEach((elem,index)=>{
     getandShowData(elem.videoId,index);
 //     let watchcont = document.createElement("div");
@@ -210,44 +212,55 @@ function showdata(watchlaterdata){
 //    option.addEventListener("click",function(){
 //     myDel(elem,index);
 //    })
- })
+ })}else{
+    alert("Login to save videos.")
+ }
+
+
  if(watchlaterdata.length == 0){
    let extracont = document.getElementById("extracont");
    extracont.innerText = "Add to watch later";
 
  }else{
-    let extracont = document.getElementById("extracont");
-    extracont.innerHTML = "";
-   let firstimg = document.createElement("img");
-   firstimg.addEventListener("click",function(){
-    localStorage.setItem("videoId",watchlaterdata[0].videoId);
-    location.href = "./video1.html";
- })
-//    firstimg.src = watchlaterdata[0].img;
-   firstimg.setAttribute("id","firstimg");
-   let h2watch = document.createElement("h2");
-   h2watch.innerText = "Watch later";
-   h2watch.setAttribute("id","h2watch");
-   let paravideos = document.createElement("p");
-   paravideos.setAttribute("id","paravideo");
-   if(watchlaterdata.length > 1){
-    paravideos.innerText = watchlaterdata.length+" videos | No views | Updated today";
-   }else{
-    paravideos.innerText = watchlaterdata.length+" video";
-   }
-    let contdivpara = document.createElement("div");
-    contdivpara.setAttribute("id","contdivpara");
-    let contimg2 = document.createElement("img");
-    contimg2.src = "../../images/noun-lock-652784.png"
-    contimg2.setAttribute("id","contimg2");
-    let paraprivate = document.createElement("p");
-    paraprivate.innerText = "Private";
-    paraprivate.setAttribute("id","paraprivate");
-
-    contdivpara.append(contimg2,paraprivate);
-   let hrtag = document.createElement("hr");
-   hrtag.setAttribute("id","hrextracontent");
-   extracont.append(firstimg,h2watch,paravideos,contdivpara,hrtag);
+    if(logedin == "true"){
+        let extracont = document.getElementById("extracont");
+        extracont.innerHTML = "";
+       let firstimg = document.createElement("img");
+       firstimg.addEventListener("click",function(){
+        localStorage.setItem("videoId",watchlaterdata[0].videoId);
+        location.href = "./video1.html";
+        
+     })
+    //    firstimg.src = watchlaterdata[0].img;
+       firstimg.setAttribute("id","firstimg");
+       let h2watch = document.createElement("h2");
+       h2watch.innerText = "Watch later";
+       h2watch.setAttribute("id","h2watch");
+       let paravideos = document.createElement("p");
+       paravideos.setAttribute("id","paravideo");
+       if(watchlaterdata.length > 1){
+        paravideos.innerText = watchlaterdata.length+" videos | No views | Updated today";
+       }else{
+        paravideos.innerText = watchlaterdata.length+" video";
+       }
+        let contdivpara = document.createElement("div");
+        contdivpara.setAttribute("id","contdivpara");
+        let contimg2 = document.createElement("img");
+        contimg2.src = "../../images/noun-lock-652784.png"
+        contimg2.setAttribute("id","contimg2");
+        let paraprivate = document.createElement("p");
+        paraprivate.innerText = "Private";
+        paraprivate.setAttribute("id","paraprivate");
+    
+        contdivpara.append(contimg2,paraprivate);
+       let hrtag = document.createElement("hr");
+       hrtag.setAttribute("id","hrextracontent");
+       extracont.append(firstimg,h2watch,paravideos,contdivpara,hrtag);
+    }else{
+        let extracont = document.getElementById("extracont");
+        extracont.innerHTML = "";
+    }
+   
  }
 }
 async function getandShowData(videoId,index){
