@@ -335,9 +335,6 @@ hr{
     transform: scale(1.15);
     /* outline:1px solid peachpuff; */
 }
-/* .hover1:hover {
-    
-     } */
-     /* .photo{
-        width: 100%;
-     } */
+.youtubeicon{
+    cursor: pointer;
+}

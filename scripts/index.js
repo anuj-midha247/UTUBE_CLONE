@@ -137,6 +137,64 @@ if(ev.target.className!="search"){
 })
 
 
+document.querySelector(".filter3").addEventListener('click', () => {
+  document.querySelector(".video-container").innerText = "";
+  let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=14&q=${"masai school"}&key=${api_key}`;
+  fetch(url)
+      .then((res) => res.json())
+  .then((data) => {
+    // console.log(data);
+    data.items.forEach((item) => {
+      getChannelIcon(item);
+    });
+  })
+  .catch((err) => console.log(err));
+
+const getChannelIcon = (video_data) => {
+    fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${video_data.snippet.channelId}&key=${api_key}`)
+        .then(res => res.json())
+        .then(data => {
+        // console.log(data);
+            video_data.channelThumbnail = data.items[0].snippet.thumbnails.default.url;
+            makeVideoCard(video_data);
+    })
+  }
+  document.querySelector(".filter0").classList.remove('active');
+  document.querySelector(".filter3").classList.add('active');
+  document.querySelector(".filter9").classList.remove('active');
+})
+
+document.querySelector(".filter9").addEventListener('click', () => {
+  document.querySelector(".video-container").innerText = "";
+  let url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=14&q=${"UPSC"}&key=${api_key}`;
+  fetch(url)
+      .then((res) => res.json())
+  .then((data) => {
+    // console.log(data);
+    data.items.forEach((item) => {
+      getChannelIcon(item);
+    });
+  })
+  .catch((err) => console.log(err));
+
+const getChannelIcon = (video_data) => {
+    fetch(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${video_data.snippet.channelId}&key=${api_key}`)
+        .then(res => res.json())
+        .then(data => {
+        // console.log(data);
+            video_data.channelThumbnail = data.items[0].snippet.thumbnails.default.url;
+            makeVideoCard(video_data);
+    })
+  }
+  document.querySelector(".filter0").classList.remove('active');
+  document.querySelector(".filter3").classList.remove('active');
+  document.querySelector(".filter9").classList.add('active');
+})
+
+document.querySelector(".youtubeicon").addEventListener("click", () => {
+  location.href = "./index.html";
+})
+
 
 
 
