@@ -24,7 +24,7 @@ function beforenav(){
         <div id="rightnavbar">
             <div id="usericondiv">
                 <i class="fa" class="userIcon">&#xf142;</i>
-                <div class="dropdowncon">
+                <div class="dropdowncon1">
                     <div id="dropUserDetails">
                         
                     </div>
