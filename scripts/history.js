@@ -1,6 +1,24 @@
 import navbar from "../components/navbar.js";
 import nav from "../components/nav.js";
-
+import beforenav from "../components/beforelogin.js";
+    let login=localStorage.getItem("login");
+    if(login=="true"){
+        document.querySelector("#container").innerHTML = nav();
+        document.getElementById("signout").addEventListener("click",()=>{
+          localStorage.setItem("login",false);
+          alert("Signout successfull");
+          location.href ="./index.html";
+          document.querySelector("#container").innerHTML = beforenav();
+      
+        })
+      }else if(login=="false" || login==null){
+        document.querySelector("#container").innerHTML = beforenav();
+        document.getElementById("signinbtn").addEventListener("click",()=>{
+          location.href="./signin-mail.html";
+          document.querySelector("#container").innerHTML = nav();
+        })
+      }
+      
 // 
 // let data = {
 //     img2 : "https://img.freepik.com/premium-vector/comic-youtube-thumbnail-background-comic-style_530597-997.jpg",
@@ -65,7 +83,7 @@ import nav from "../components/nav.js";
 //     }
 // ]
 /////
-document.querySelector("#container").innerHTML = nav();
+// document.querySelector("#container").innerHTML = nav();
 
 document.querySelector("#navContainer").innerHTML = navbar();
 const openMenu = document.querySelector("#show-menu");

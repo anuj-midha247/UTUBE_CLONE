@@ -1,7 +1,28 @@
 import navbar from "../../components/navbar.js";
 import nav from "../../components/nav.js";
 
-document.getElementById("container").innerHTML = nav();
+
+import beforenav from "../../components/beforelogin.js";
+    
+    let login=localStorage.getItem("login");
+    if(login=="true"){
+        document.querySelector("#container").innerHTML = nav();
+        document.getElementById("signout").addEventListener("click",()=>{
+          localStorage.setItem("login",false);
+          alert("Signout successfull");
+          location.href ="./index.html";
+          document.querySelector("#container").innerHTML = beforenav();
+      
+        })
+      }else if(login=="false" || login==null){
+        document.querySelector("#container").innerHTML = beforenav();
+        document.getElementById("signinbtn").addEventListener("click",()=>{
+          location.href="./signin-mail.html";
+          document.querySelector("#container").innerHTML = nav();
+        })
+      }
+      
+//document.getElementById("container").innerHTML = nav();
 document.getElementById("navContainer").innerHTML = navbar();
 
 const openMenu = document.querySelector("#show-menu");
